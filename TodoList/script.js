@@ -25,6 +25,12 @@ addBtn.addEventListener("click", function () {
         appendTaskBox.removeChild(appendTask);
     })
 
-    appendTaskBox.appendChild(appendTask);
+    if(taskValue != ""){
+        appendTaskBox.appendChild(appendTask);
+    }
+    else{
+        alert("Please enter Task first !!");
+    }
+    
 })
 
