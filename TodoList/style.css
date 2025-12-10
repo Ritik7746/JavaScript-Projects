@@ -1,0 +1,166 @@
+/* --- 1. Base Styling and Full Screen Centering --- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+body {
+    /* Flexbox se content ko screen ke theek beech mein laao */
+    display: flex; 
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    min-height: 100vh; 
+    
+    /* Background Gradient: Lavender Mist / Subtle */
+    background: linear-gradient(135deg, #9795ef 0%, #f9c5d1 100%);
+}
+
+/* --- 2. Main Container Styling (The To-Do App Box) --- */
+
+#mainContainor {
+    width: 100%;
+    max-width: 540px; 
+    background: #ffffff; 
+    padding: 40px 30px 70px;
+    border-radius: 15px; 
+    
+    /* Box Shadow (Container ko 'lift' karne ke liye) */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
+}
+
+/* --- 3. Heading (H1) Styling --- */
+
+#mainContainor h1 {
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 32px;
+}
+
+/* (Optional: Agar aap icon lagana chahte hain) */
+#mainContainor h1::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    /* Yahan icon ki URL lagayein: */
+    /* background-image: url('images/icon.png'); */
+    background-size: cover;
+}
+
+/* --- 4. Input Area Styling (Input aur Button) --- */
+
+#inputArea {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0; 
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+#inputArea input {
+    flex: 1; 
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#inputArea button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945; /* Bright Orange-Red Button */
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background 0.3s;
+}
+
+#inputArea button:hover {
+    background: #e04a39; 
+}
+
+/* --- 5. Task List Item Styling --- */
+
+#appendTaskBox {
+    list-style-type: none; /* UL/OL ki default list style hatane ke liye */
+}
+
+.appendTask {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 17px;
+    padding: 12px 0; /* Padding adjust ki */
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px solid #eee; 
+}
+
+.appendTask:last-child {
+    border-bottom: none;
+}
+
+.appendTask h4 {
+    flex-grow: 1; 
+    margin: 0 10px; /* Left/Right margin adjust ki */
+    font-weight: normal;
+    color: #333;
+    line-height: 1.2;
+}
+
+/* --- 6. Custom Radio/Checkbox Styling --- */
+
+/* Radio Button ki jagah custom style (Unchecked State) */
+.appendTask input[type="radio"] {
+    appearance: none; 
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #DDDDDD; /* Light Gray (Unchecked Color) */
+    cursor: pointer;
+    margin-right: 5px; /* Task name se thoda space */
+    position: relative;
+}
+
+/* Checked state ke liye custom style (Green Color) */
+.appendTask input[type="radio"]:checked {
+    background-color: #28a745; /* Bright Green (Checked Color) */
+    
+    /* White Tick Mark (Optional: Checked hone par tick mark dikhane ke liye) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9.55 18.05 4.8 13.3l1.45-1.45 3.3 3.3 6.95-6.95 1.45 1.45z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Task Text ko complete hone par strike-through karna */
+.appendTask input[type="radio"]:checked + h4 {
+    color: #555;
+    text-decoration: line-through; 
+}
+
+/* --- 7. Delete Icon (SVG) Styling --- */
+/* (Aapne SVG use kiya hai, use style karte hain) */
+
+.appendTask svg {
+    color: #a0a0a0;
+    margin-left: 15px;
+    transition: color 0.3s;
+    flex-shrink: 0; /* Isse icon shrink nahi hoga */
+}
+
+.appendTask svg:hover {
+    color: #ff5945; 
+}
